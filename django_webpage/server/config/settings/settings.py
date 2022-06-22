@@ -22,7 +22,19 @@ DEBUG = True
 # Databases settings (with docker)
 ##################################################################
 
-DATABASES = {'default': dj_database_url.config()}
+# DATABASES = {'default': dj_database_url.config()}
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'numbers',
+        'USER': 'test_user',
+        'PASSWORD': '140944',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+
 
 ##################################################################
 # Logging settings
@@ -86,21 +98,21 @@ MIDDLEWARE = [
 ##################################################################
 # Password validation settings
 ##################################################################
-
-AUTH_PASSWORD_VALIDATORS = [
-        {
-            'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-        },
-        {
-            'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-        },
-        {
-            'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-        },
-        {
-            'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-        },
-    ]
+if not DEBUG:
+    AUTH_PASSWORD_VALIDATORS = [
+            {
+                'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+            },
+            {
+                'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+            },
+            {
+                'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+            },
+            {
+                'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+            },
+        ]
 
 ##################################################################
 # Static files settings (CSS, JavaScript, Images)
@@ -147,5 +159,7 @@ if DEBUG:
     INSTALLED_APPS += ['debug_toolbar']
 
 
-
+##################################################################
+# Google sheets settings
+##################################################################
 

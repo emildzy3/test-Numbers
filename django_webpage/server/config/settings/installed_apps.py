@@ -7,10 +7,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
+    'apps.sheet',
+
 ]
 
+LOCAL_APPS = [
+    # 'apps.sheet',
+]
 
-LOCAL_MIGRATIONS = [app_path.split('.')[1] for app_path in INSTALLED_APPS]
+INSTALLED_APPS += LOCAL_APPS
+
+LOCAL_MIGRATIONS = [app_path.split('.')[1] for app_path in LOCAL_APPS]
 
 MIGRATION_PATH = 'config.migrations.'
 
