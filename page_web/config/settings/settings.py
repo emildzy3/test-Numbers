@@ -5,7 +5,7 @@ from pathlib import Path
 import dj_database_url
 
 BASE_DIR = Path(__file__).parents[2]
-SECRET_KEY = '!6xmo&@!7dzw8p6yxjnj&&1lur%4+fs!r2tuzbgsdfgsdfgsdfgsdfgds#6j(64s@m6)*'
+SECRET_KEY = '!6xmo&@!7dzw8p6yxjnj&&1lur%4+fs!r2tuzb#6j(64s@m6)*'
 ROOT_URLCONF = 'config.urls'
 WSGI_APPLICATION = 'config.wsgi.application'
 ALLOWED_HOSTS = ['*']
@@ -16,7 +16,7 @@ SITE_ID = 1
 # Debug settings (with docker)
 ##################################################################
 
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ##################################################################
 # Databases settings (with docker)
@@ -34,7 +34,6 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
 
 ##################################################################
 # Logging settings
@@ -98,21 +97,22 @@ MIDDLEWARE = [
 ##################################################################
 # Password validation settings
 ##################################################################
+
 if not DEBUG:
     AUTH_PASSWORD_VALIDATORS = [
-            {
-                'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-            },
-            {
-                'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-            },
-            {
-                'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-            },
-            {
-                'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-            },
-        ]
+        {
+            'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        },
+        {
+            'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        },
+        {
+            'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        },
+        {
+            'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        },
+    ]
 
 ##################################################################
 # Static files settings (CSS, JavaScript, Images)
@@ -147,6 +147,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 if DEBUG:
     from .installed_apps import INSTALLED_APPS
 
+
     def show_toolbar(request):
         from django.conf import settings
         return settings.DEBUG
@@ -158,8 +159,4 @@ if DEBUG:
     MIDDLEWARE = ['debug_toolbar.middleware.DebugToolbarMiddleware'] + MIDDLEWARE
     INSTALLED_APPS += ['debug_toolbar']
 
-
-##################################################################
-# Google sheets settings
-##################################################################
 

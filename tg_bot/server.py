@@ -10,7 +10,7 @@ from aiogram.dispatcher.filters import Text
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from dateutil.relativedelta import relativedelta
 from getting_delivery_time import delivery_time_check
-from settings import TIMEOUT
+from setting import TIMEOUT
 
 logging.basicConfig(level=logging.INFO)
 

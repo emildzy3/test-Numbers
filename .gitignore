@@ -11,6 +11,7 @@
 /venv/
 .idea/
 
-tg_bot/config.py
+**/tg_bot/config.py
+
 
 

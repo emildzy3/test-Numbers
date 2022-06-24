@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Order(models.Model):
     position_number = models.BigAutoField(primary_key=True, verbose_name='№')
     order_number = models.IntegerField(verbose_name='Заказ №')

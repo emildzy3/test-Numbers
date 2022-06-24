@@ -3,7 +3,7 @@ from datetime import datetime
 from typing import Any
 import psycopg2
 from exceptions import CantGetData, CantConvertDataToDB
-from settings import DATABASE, USER, PASSWORD, HOST, PORT
+from setting import DATABASE, USER, PASSWORD, HOST, PORT
 
 
 @dataclass(slots=True, frozen=True)

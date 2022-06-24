@@ -94,7 +94,7 @@
  <div class="service-content">
      <br>
  <h3>Всего заказов</h3>
-     <h4> <u>{{all_order.last.position_number}} </u> </h4>
+     <h4> <u>{{all_orders.last.position_number}} </u> </h4>
  </div>
  </div>
  </div>
@@ -106,7 +106,8 @@
  </div>
  <div class="service-content">
  <h3>Общая стоимость, руб.</h3>
-    <h4> <u>{{sum_price.sum_rubl}} </u> </h4> </div>
+    <h4> <u>{{sum_price.sum_rubl}} </u> </h4>
+ </div>
  </div>
  </div>
 
@@ -116,8 +117,8 @@
  <i class="fa fa-user-md"></i>
  </div>
  <div class="service-content">
- <h3><a href="#">Общая стоимость,$</a></h3>
-    <h4> <u>{{sum_price.sum_dollar}} </u> </h4> </div> </div>
+ <h3>Общая стоимость,$</h3>
+    <h4> <u>{{sum_price.sum_dollar}} </u> </h4> </div>
  </div>
  </div>
 
@@ -139,7 +140,7 @@
             </tr>
           </thead>
           <tbody>
-          {% for element in all_order%}
+          {% for element in all_orders%}
           <tr>
                 <td>{{element.position_number}}</td>
                 <td>{{element.order_number}}</td>
