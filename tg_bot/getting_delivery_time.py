@@ -74,9 +74,9 @@ def _convert_data_from_db(raw_data: tuple[tuple[Any, ...], ...]) -> list[Order]:
                 delivery_time=values[3],
                 rubles_value=values[4],
             ))
-            return list_orders
         except (psycopg2.errors.UniqueViolation, ValueError, IndexError):
             raise CantConvertDataToDB
+    return list_orders
 
 
 if __name__ == '__main__':
