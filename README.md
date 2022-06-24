@@ -2,7 +2,7 @@
 
 ## О проекте
 ___
-В результате выполнения проекта разработан скрипт для синхронизации данных из [Google Sheets](https://docs.google.com/spreadsheets/d/1VuNKORnuTib8k1mMIjqrEms6VungKDuveLvJFMCza4c/edit#gid=0) с БД Postgresql. Также в рамках выполнения Т.З. написан Telegram bot для уведомления пользователей об нарушении срока поставки товара и создан одностраничный веб-сайт. 
+В результате выполнения проекта разработан скрипт для синхронизации данных из [Google Sheets](https://docs.google.com/spreadsheets/d/1VuNKORnuTib8k1mMIjqrEms6VungKDuveLvJFMCza4c/edit#gid=0) с БД Postgresql. Также в рамках выполнения Т.З. написан Telegram bot для уведомления пользователей о нарушении срока поставки товара и создан одностраничный веб-сайт. 
 
 [тестовое здание](https://github.com/emildzy3/test-Numbers/blob/main/%D0%A2%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5%20%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%20(developer).pdf)
 
