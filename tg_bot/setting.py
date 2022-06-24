@@ -2,11 +2,10 @@
 # Database settings
 ##################################################################
 DATABASE = "numbers"
-USER = "test_user"
+USER = "numbers_admin"
 PASSWORD = "140944"
-HOST = "127.0.0.1"
+HOST = "db"
 PORT = "5432"
-
 
 ##################################################################
 # Timeout settings

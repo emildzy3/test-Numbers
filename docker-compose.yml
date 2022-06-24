@@ -1,0 +1,52 @@
+version: '3.3'
+services:
+    server:
+      build:
+        context: ./
+        dockerfile: ./page_web/Dockerfile
+      command: python manage.py runserver 0.0.0.0:8000
+      volumes:
+        - ./page_web:/server
+      ports:
+        - "8000:8000"
+      depends_on:
+        - db
+      environment:
+        DEBUG: 'True'
+        DATABASE_URL: 'postgres://numbers_admin:140944@db:5432/numbers'
+
+    script:
+      build:
+        context: ./
+        dockerfile: ./sync_script/Dockerfile
+      command: python update_data_Gsheets.py
+      volumes:
+        - ./sync_script:/script
+      depends_on:
+        - db
+        - server
+
+    tg_bot:
+      build:
+        context: ./
+        dockerfile: ./tg_bot/Dockerfile
+      command: python server.py
+      volumes:
+        - ./tg_bot:/tg_bot
+      depends_on:
+        - db
+        - server
+
+    db:
+      image: postgres:12.9-alpine
+      volumes:
+        - postgres_data:/var/lib/postgresql/data/
+      environment:
+        POSTGRES_DB: numbers
+        POSTGRES_USER: numbers_admin
+        POSTGRES_PASSWORD: 140944
+
+
+
+volumes:
+  postgres_data:

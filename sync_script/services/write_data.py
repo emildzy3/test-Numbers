@@ -32,11 +32,12 @@ def _write_new_data(cur: psycopg2) -> None:
             cur.execute(
                 f"INSERT INTO sheet_order (position_number,order_number,dollar_value,delivery_time,rubles_value) VALUES "
                 f"({int(element[0])}, "
-                f"{int(element[1])}, {int(element[2])}, '{element[3]}', {round(int(element[2]) * ruble_exchange_rate)})"
+                f"{int(element[1])}, {int(element[2])}, '{'-'.join(reversed(element[3].split('.')))}', {round(int(element[2]) * ruble_exchange_rate)})"
             )
         except (psycopg2.errors.UniqueViolation, ValueError, IndexError):
             raise CantWriteDatabase
 
+# check_date = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
 
 def _connect_DB() -> psycopg2.connect:
     try:
@@ -51,3 +52,4 @@ def _connect_DB() -> psycopg2.connect:
         return con
     except psycopg2.OperationalError:
         raise CantWriteDatabase
+
