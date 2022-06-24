@@ -10,3 +10,7 @@
 *.7z
 /venv/
 .idea/
+
+tg_bot/config.py
+
+

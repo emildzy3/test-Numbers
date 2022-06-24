@@ -6,7 +6,7 @@ COPY requirements.txt /script/
 
 #RUN apt-get update && apt-get install -y git libpq-dev postgresql-client && apt-get install -y python3-pip
 RUN pip install -r requirements.txt
-#RUN chmod +x /sync_script/get_data_sheet.py
+#RUN chmod +x /sync_script/update_data_Gsheets.py
 COPY ./ /script
-#CMD ["python3", "/sync_script/get_data_sheet.py"]
+#CMD ["python3", "/sync_script/update_data_Gsheets.py"]
 

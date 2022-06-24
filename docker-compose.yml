@@ -28,7 +28,7 @@ services:
       build:
         context: ./
         dockerfile: ../sync_script/Dockerfile
-      command: python3 get_data_sheet.py
+      command: python3 update_data_Gsheets.py
       depends_on:
         - db
 #        - server
