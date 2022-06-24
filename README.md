@@ -4,7 +4,7 @@
 ___
 В результате выполнения проекта разработан скрипт для синхронизации данных из [Google Sheets](https://docs.google.com/spreadsheets/d/1VuNKORnuTib8k1mMIjqrEms6VungKDuveLvJFMCza4c/edit#gid=0) с БД Postgresql. Также в рамках выполнения Т.З. написан Telegram bot для уведомления пользователей об нарушении срока поставки товара и создан одностраничный веб-сайт. 
 
-[тестовое здание]()
+[тестовое здание](https://github.com/emildzy3/test-Numbers/blob/main/%D0%A2%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5%20%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%20(developer).pdf)
 
 ## Запуск и установка проекта 
 ___
@@ -15,7 +15,7 @@ ___
 git clone https://github.com/emildzy3/test-Numbers.git
 ```
 2. Получите Token у телеграм-бота @BotFather
-3. Добавить его в файл config.py
+3. Добавить его в файл tg_bot/config.py
 ```
 token = '........'
 ```
@@ -55,7 +55,7 @@ ALTER ROLE user SET timezone TO 'UTC';
 GRANT ALL PRIVILEGES ON DATABASE number TO user;
 ALTER DATABASE number OWNER TO user;
 ```
-6. В настройках приложений (файл settings.py) замените параметры БД
+6. В настройках приложений (в каждой папке - settings.py) замените параметры БД
 ```
 DATABASE = "..."
 USER = "..."
@@ -72,5 +72,5 @@ python manage.py migrate
 ```
 python3 server.py
 python3 update_data_Gsheets.py
-python manage.py runserver
+python3 manage.py runserver
 ```
